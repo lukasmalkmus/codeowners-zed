@@ -1,0 +1,65 @@
+{
+  "name": "tree-sitter-codeowners",
+  "version": "0.1.0",
+  "description": "Tree-sitter grammar for GitHub CODEOWNERS files",
+  "main": "bindings/node",
+  "types": "bindings/node",
+  "keywords": [
+    "tree-sitter",
+    "parser",
+    "codeowners",
+    "github"
+  ],
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ],
+  "author": "Lukas Malkmus",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lukasmalkmus/tree-sitter-codeowners.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lukasmalkmus/tree-sitter-codeowners/issues"
+  },
+  "homepage": "https://github.com/lukasmalkmus/tree-sitter-codeowners#readme",
+  "dependencies": {
+    "node-addon-api": "^7.1.0",
+    "node-gyp-build": "^4.8.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.22.6",
+    "prebuildify": "^6.0.0"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.21.0"
+  },
+  "peerDependenciesMeta": {
+    "tree-sitter": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "install": "node-gyp-build",
+    "prestart": "tree-sitter build --wasm",
+    "start": "tree-sitter playground",
+    "test": "node --test bindings/node/*_test.js",
+    "prebuildify": "prebuildify --napi --strip"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.codeowners",
+      "file-types": [
+        "CODEOWNERS"
+      ],
+      "highlights": [
+        "queries/highlights.scm"
+      ]
+    }
+  ]
+}

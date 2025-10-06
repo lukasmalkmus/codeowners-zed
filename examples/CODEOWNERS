@@ -1,0 +1,62 @@
+# CODEOWNERS Example File
+# This file demonstrates the syntax supported by the CODEOWNERS extension
+
+# Default owners for everything in the repo
+* @global-owner @org/global-team
+
+# Documentation
+*.md @docs-team @tech-writers
+/docs/ @documentation
+
+# Frontend
+*.js @frontend-team
+*.jsx @frontend-team
+*.ts @typescript-team
+*.tsx @typescript-team
+/src/components/ @ui-team
+
+# Backend
+*.go @backend-team
+*.rs @rust-team
+/api/ @backend-team @api-maintainers
+
+# DevOps and Infrastructure
+Dockerfile @devops
+docker-compose.yml @devops @infrastructure
+*.tf @terraform-team
+/.github/ @github-admins
+/.github/workflows/ @ci-cd-team
+
+# Database
+/migrations/ @database-team
+*.sql @database-team
+
+# Configuration files
+*.yml @config-owners
+*.yaml @config-owners
+*.toml @config-owners
+*.json @config-owners
+
+# Section with approvers
+[Critical Files]
+/src/core/ @core-maintainers @security-team
+/src/auth/ @security-team
+
+[Infrastructure] @sre-team @platform-team
+*.tf @terraform-experts
+k8s/ @kubernetes-team
+
+# Wildcard patterns
+**/*.test.js @testing-team
+**/test/ @qa-team
+
+# Email addresses (less common but supported)
+/legal/ legal@company.com
+/compliance/ compliance@company.com
+
+# Multiple owners
+/important/ @owner1 @owner2 @org/team1 @org/team2
+
+# Nested paths
+/src/features/auth/**/*.go @auth-team @security-team
+/src/features/payments/**/*.go @payments-team @finance-team
